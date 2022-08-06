@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-. android/sdk/vars.env
+. scripts/android/sdk/.env
 
 sdk_url="https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip"
 rnd_string=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 13 ; echo '')

@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "bash -c 'source android/sdk/init.sh && react-native run-android'",
-    "android:emulator": "bash -c 'source android/sdk/init.sh && android/sdk/start_emulator.sh'",
+    "android": "bash -c 'source scripts/android/sdk/init.sh && react-native run-android'",
+    "android:emulator": "bash -c 'source scripts/android/sdk/init.sh && scripts/android/sdk/android_emulator.sh'",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
@@ -28,6 +28,7 @@
     "eslint": "^8.21.0",
     "jest": "^28.1.3",
     "metro-react-native-babel-preset": "^0.72.0",
+    "prettier": "^2.6.1",
     "react-test-renderer": "18.2.0",
     "typescript": "^4.7.4"
   },
