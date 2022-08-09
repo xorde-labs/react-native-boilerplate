@@ -2,10 +2,20 @@
 
 . scripts/android/sdk/.env
 
-sdk_url="https://dl.google.com/android/repository/commandlinetools-linux-8512546_latest.zip"
-rnd_string=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 13 ; echo '')
-tmp_file="/tmp/${rnd_string}.zip"
+if [[ $OSTYPE == 'darwin'* ]]; then
+  os=mac
+elif [[ $OSTYPE == 'linux-gnu'* ]]; then
+  os=linux
+else
+  echo "Unsupported OS: ${OSTYPE}"
+  exit 1
+fi
 
+export LC_ALL=C
+rnd_string=$(tr -dc A-Za-z0-9 </dev/urandom | head -c 13 ; echo '')
+
+sdk_url="https://dl.google.com/android/repository/commandlinetools-${os}-8512546_latest.zip"
+tmp_file="/tmp/${rnd_string}.zip"
 
 if [ -d "${SDK_ROOT}" ]; then
   backup_dir="${SDK_ROOT}_backup_${rnd_string}"

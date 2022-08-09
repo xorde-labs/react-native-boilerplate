@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "android": "bash -c 'source scripts/android/sdk/init.sh && react-native run-android'",
-    "android:emulator": "bash -c 'source scripts/android/sdk/init.sh && scripts/android/sdk/android_emulator.sh'",
-    "ios": "react-native run-ios",
+    "android:emulator": "bash -c 'source scripts/android/sdk/init.sh && scripts/android/android_emulator.sh'",
+    "ios": "scripts/ios_init.sh && react-native run-ios",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
