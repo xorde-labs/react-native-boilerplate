@@ -4,7 +4,7 @@
 
 ### Configure Java 11 using SDKMan!
 
-If you have SDKMan! installed, just make sure you have Java 11 candidate installed.
+If you have [SDKMan!](https://sdkman.io/install) installed, just make sure you have Java 11 candidate installed.
 
 For example:
 
@@ -43,3 +43,5 @@ yarn run android:emulator
 ```shell
 sed -i 's/^hw.keyboard = .*/hw.keyboard = yes/g' $HOME/.android/avd/emulator_avd.avd/config.ini
 ```
+
+Please replace `emulator_avd` with your value, if you override `EMULATOR_NAME` using `.env` file

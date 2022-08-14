@@ -17,6 +17,7 @@ arch=$(uname -i)
 
 cd "${SDK_ROOT}" || exit
 
+### list all available AVDs:
 ### 1. Get list of all AVDs (the list will be parameter-per-line)
 ### 2. Filter only Name: lines from output
 ### 3. Strip Name: from the line
@@ -38,7 +39,10 @@ if echo "${list_avds}" | grep -w "${avd_name}" > /dev/null; then
 else
   echo "AVD is not present. Creating new AVD..."
   cd "${tools_dir}" || exit 11
-  ./avdmanager create avd -n "${avd_name}" -k "system-images;android-${SDK_PLATFORM};${SYSTEM_IMAGE_FLAVOR};${arch}" -b ${arch} -d ${EMULATOR_DEVICE}
+  ./avdmanager create avd -n "${avd_name}" -k "system-images;android-${SDK_PLATFORM};${SYSTEM_IMAGE_FLAVOR};${arch}" -b "${arch}" -d "${EMULATOR_DEVICE}"
+
+  ### enabling host keyboard for emulator:
+  sed -i 's/^hw.keyboard = .*/hw.keyboard = yes/g' "$HOME/.android/avd/${avd_name}.avd/config.ini"
 fi
 
 echo "Launching emulator ${avd_name}"
