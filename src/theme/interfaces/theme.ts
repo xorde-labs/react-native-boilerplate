@@ -1,11 +1,11 @@
-import { TextStyle, ViewStyle } from 'react-native';
+import { StatusBarStyle } from 'react-native';
+import { IThemeColors } from './colors';
+import { IThemeStyles } from './styles';
 
 export interface ITheme {
-	section: (ViewStyle | TextStyle) & {
-		container: ViewStyle | TextStyle;
-		title: ViewStyle | TextStyle;
-		description: ViewStyle | TextStyle;
-	};
+	Colors: IThemeColors;
+	StatusBar: StatusBarStyle;
+	Styles: IThemeStyles;
 }
 
 // sectionTitle: {

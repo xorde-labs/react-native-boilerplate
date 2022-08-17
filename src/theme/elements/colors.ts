@@ -5,26 +5,26 @@ import { IThemeColors } from '../interfaces/colors';
 const isDark = Appearance.getColorScheme() === 'dark';
 
 const DefaultColors: IThemeColors = {
-	background: '',
-	button: '',
-	disabled: '',
-	error: '',
-	info: '',
-	primary: '',
-	secondary: '',
-	states: {
-		disabled: '',
-		hover: '',
-		normal: '',
-		pressed: '',
+	background: StandardPalette.white,
+	button: {
+		normal: StandardPalette.blueviolet,
+		hover: StandardPalette.cadetblue,
+		disabled: StandardPalette.gray,
+		pressed: StandardPalette.blue,
 	},
-	success: '',
-	tertiary: '',
-	text: '',
+	disabled: StandardPalette.darkslategray,
+	error: StandardPalette.red,
+	info: StandardPalette.blue,
+	primary: StandardPalette.cornflowerblue,
+	secondary: StandardPalette.lightblue,
+	success: StandardPalette.forestgreen,
+	tertiary: StandardPalette.aliceblue,
+	text: StandardPalette.black,
 	transparent: StandardPalette.transparent,
-	warning: '',
+	warning: StandardPalette.indianred,
 };
 
+// Override default colors with light theme colors
 const LightColors: IThemeColors = {
 	...DefaultColors,
 	primary: StandardPalette.blue,
@@ -32,11 +32,13 @@ const LightColors: IThemeColors = {
 	tertiary: StandardPalette.green,
 };
 
+// Override default colors with dark theme colors
 const DarkColors: IThemeColors = {
 	...DefaultColors,
-	primary: StandardPalette.blue,
-	secondary: StandardPalette.red,
-	tertiary: StandardPalette.green,
+	background: StandardPalette.black,
+	primary: StandardPalette.green,
+	secondary: StandardPalette.yellow,
+	tertiary: StandardPalette.red,
 };
 
-export const Colors: IThemeColors = isDark ? DarkColors : LightColors;
+export const ThemeColors: IThemeColors = isDark ? DarkColors : LightColors;

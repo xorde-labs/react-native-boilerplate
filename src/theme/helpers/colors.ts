@@ -5,15 +5,16 @@ export type HSVColor = Color;
 
 /**
  * Converts an RGB color value to Hex color.
- * @param rgb
+ * @param rgb The RGB color value
  */
 export const rgb2hex = (rgb: RGBColor): string => {
+	// eslint-disable-next-line no-bitwise
 	return '#' + ((1 << 24) + (rgb[0] << 16) + (rgb[1] << 8) + rgb[2]).toString(16).slice(1);
 };
 
 /**
  * Converts a Hex color value to RGB.
- * @param hex
+ * @param hex Hex color value
  */
 export const hex2rgb = (hex: string): RGBColor => {
 	// Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
@@ -28,9 +29,9 @@ export const hex2rgb = (hex: string): RGBColor => {
 
 /**
  * Convert an RGB color value to HSV.
- * @param r
- * @param g
- * @param b
+ * @param r Red channel value
+ * @param g Green channel value
+ * @param b Blue channel value
  */
 export const rgb2hsv = (r: number, g: number, b: number): HSVColor => {
 	let v = Math.max(r, g, b),
@@ -41,9 +42,9 @@ export const rgb2hsv = (r: number, g: number, b: number): HSVColor => {
 
 /**
  * Convert an HSV color value to RGB.
- * @param h
- * @param s
- * @param v
+ * @param h Hue
+ * @param s Saturation
+ * @param v Value
  */
 export const hsv2rgb = (h: number, s: number, v: number): RGBColor => {
 	let f = (n: number, k = (n + h / 60) % 6) => v - v * s * Math.max(Math.min(k, 4 - k, 1), 0);
@@ -52,23 +53,23 @@ export const hsv2rgb = (h: number, s: number, v: number): RGBColor => {
 
 /**
  * Convert an RGB color value to HSL.
- * @param r
- * @param g
- * @param b
+ * @param r Red channel value
+ * @param g Green channel value
+ * @param b Blue channel value
  */
 export const rgb2hsl = (r: number, g: number, b: number): HSLColor => {
 	let v = Math.max(r, g, b),
 		c = v - Math.min(r, g, b),
 		f = 1 - Math.abs(v + v - c - 1);
-	let h = c && (v == r ? (g - b) / c : v == g ? 2 + (b - r) / c : 4 + (r - g) / c);
+	let h = c && (v === r ? (g - b) / c : v === g ? 2 + (b - r) / c : 4 + (r - g) / c);
 	return [60 * (h < 0 ? h + 6 : h), f ? c / f : 0, (v + v - c) / 2];
 };
 
 /**
  * Convert an HSL color value to RGB.
- * @param h
- * @param s
- * @param l
+ * @param h Hue
+ * @param s Saturation
+ * @param l Lightness
  */
 export const hsl2rgb = (h: number, s: number, l: number): RGBColor => {
 	let a = s * Math.min(l, 1 - l);
@@ -78,10 +79,10 @@ export const hsl2rgb = (h: number, s: number, l: number): RGBColor => {
 
 /**
  * Convert an HSL color value to HSV.
- * @param h
- * @param s
- * @param l
- * @param v
+ * @param h Hue
+ * @param s Saturation
+ * @param l Lightness
+ * @param v Value
  */
 export const hsl2hsv = (h: any, s: number, l: number, v = s * Math.min(l, 1 - l) + l): HSVColor => [
 	h,
@@ -91,11 +92,11 @@ export const hsl2hsv = (h: any, s: number, l: number, v = s * Math.min(l, 1 - l)
 
 /**
  * Convert an HSV color value to HSL.
- * @param h
- * @param s
- * @param v
- * @param l
- * @param m
+ * @param h Hue
+ * @param s Saturation
+ * @param v Value
+ * @param l Lightness
+ * @param m Max value
  */
 export const hsv2hsl = (h: any, s: number, v: number, l = v - (v * s) / 2, m = Math.min(l, 1 - l)): HSLColor => [
 	h,

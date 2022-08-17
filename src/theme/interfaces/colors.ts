@@ -10,7 +10,6 @@ export interface IThemeColors {
 	secondary: string;
 	tertiary: string;
 	background: string;
-	button: string;
 	text: string;
 	success: string;
 	error: string;
@@ -18,7 +17,7 @@ export interface IThemeColors {
 	info: string;
 	disabled: string;
 	transparent: string;
-	states: IThemeColorsStates;
+	button: IThemeColorsStates;
 }
 
 export interface IThemeColorsShades {

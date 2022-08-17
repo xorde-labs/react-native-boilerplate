@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import { StyleSheet, Text, useColorScheme, View } from 'react-native';
-import { Colors, Spacing } from '../../theme';
+import { ThemeColors, Spacing } from '../../theme';
 
 export const Section: React.FC<
 	PropsWithChildren<{
@@ -14,7 +14,7 @@ export const Section: React.FC<
 				style={[
 					styles.sectionTitle,
 					{
-						color: Colors(isDarkMode).primary,
+						color: ThemeColors(isDarkMode).primary,
 					},
 				]}
 			>
@@ -24,7 +24,7 @@ export const Section: React.FC<
 				style={[
 					styles.sectionDescription,
 					{
-						color: Colors(isDarkMode).primary,
+						color: ThemeColors(isDarkMode).primary,
 					},
 				]}
 			>

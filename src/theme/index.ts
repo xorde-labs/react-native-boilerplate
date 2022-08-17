@@ -1,23 +1,22 @@
-import { StatusBarStyle, StyleSheet } from 'react-native';
-import { IScreenTheme, ScreenTheme } from './screen';
-import { BaseColors, IBaseThemeVariant } from './base';
-import { TTextElementStyle } from './types/theme';
+import { StatusBarTheme } from './elements/statusbar';
+import { ThemeColors } from './elements/colors';
+import { IThemeStyles } from './interfaces/styles';
+import { ScreenStyle } from './styles/screen';
+import { ITheme } from './interfaces/theme';
+import { StyleSheet } from 'react-native';
+import { ColorStyles } from './styles/colors';
 
 export * from './elements/colors';
 export * from './elements/spacing';
 export * from './elements/typography';
 
-export interface IThemes {
-	Colors: TTextElementStyle;
-	Fonts: TTextElementStyle;
-	Screen: IScreenTheme;
-	StatusBar: StatusBarStyle;
-}
+const ThemeStyles: IThemeStyles = {
+	screen: StyleSheet.create(ScreenStyle),
+	colors: ColorStyles,
+};
 
-export const StatusBar = (isDark = false): StatusBarStyle => (isDark ? 'dark-content' : 'light-content');
-
-export const Theme = (isDark = false): IThemes => ({
-	Colors: StyleSheet.create(BaseColors(isDark)),
-	Screen: StyleSheet.create(ScreenTheme(isDark)),
-	StatusBar: isDark ? 'dark-content' : 'light-content',
-});
+export const Theme: ITheme = {
+	Colors: ThemeColors,
+	StatusBar: StatusBarTheme,
+	Styles: ThemeStyles,
+};

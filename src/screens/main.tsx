@@ -3,27 +3,26 @@
  */
 
 import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar, Text, useColorScheme, View } from 'react-native';
+import { SafeAreaView, ScrollView, StatusBar, Text, View } from 'react-native';
 
 import { DebugInstructions, Header, LearnMoreLinks, ReloadInstructions } from 'react-native/Libraries/NewAppScreen';
 import { Theme } from '../theme';
 import { Section } from '../components/views/section';
 
 const Main = () => {
-	const theme = Theme(useColorScheme() === 'dark');
-
 	return (
-		<SafeAreaView style={theme.Screen.container}>
-			<StatusBar barStyle={theme.StatusBar} />
-			<ScrollView contentInsetAdjustmentBehavior="automatic" style={theme.Base.Colors}>
+		<SafeAreaView style={Theme.Styles.screen.container}>
+			<StatusBar barStyle={Theme.StatusBar} />
+			<ScrollView contentInsetAdjustmentBehavior="automatic" style={Theme.Styles.colors.default}>
 				<Header />
 				<View
 					style={{
-						backgroundColor: theme.Screen.container.backgroundColor,
+						backgroundColor: Theme.Styles.screen.container.backgroundColor,
 					}}
 				>
 					<Section title="Step One">
-						Edit <Text style={}>App.tsx</Text> to change this screen and then come back to see your edits.
+						Edit <Text style={{ color: 'red' }}>App.tsx</Text> to change this screen and then come back to see your
+						edits.
 					</Section>
 					<Section title="See Your Changes">
 						<ReloadInstructions />
