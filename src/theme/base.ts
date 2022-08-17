@@ -1,6 +1,6 @@
 import { TextStyle, ViewStyle } from 'react-native';
 import { Colors } from './elements/colors';
-import { Typography } from './enums/typography';
+import { Typography } from './elements/typography';
 
 export interface IBaseThemeVariant {
 	Colors: ViewStyle | TextStyle;

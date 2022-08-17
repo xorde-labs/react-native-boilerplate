@@ -1,11 +1,11 @@
 import { StatusBarStyle, StyleSheet } from 'react-native';
 import { IScreenTheme, ScreenTheme } from './screen';
 import { BaseColors, IBaseThemeVariant } from './base';
-import { TTextElementStyle } from './types/theme.types';
+import { TTextElementStyle } from './types/theme';
 
 export * from './elements/colors';
-export * from './enums/spacing';
-export * from './enums/typography';
+export * from './elements/spacing';
+export * from './elements/typography';
 
 export interface IThemes {
 	Colors: TTextElementStyle;
@@ -18,7 +18,6 @@ export const StatusBar = (isDark = false): StatusBarStyle => (isDark ? 'dark-con
 
 export const Theme = (isDark = false): IThemes => ({
 	Colors: StyleSheet.create(BaseColors(isDark)),
-	Fonts:
 	Screen: StyleSheet.create(ScreenTheme(isDark)),
 	StatusBar: isDark ? 'dark-content' : 'light-content',
 });

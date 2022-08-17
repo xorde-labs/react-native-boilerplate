@@ -1,24 +1,42 @@
 import { StandardPalette } from '../enums/palette';
+import { Appearance } from 'react-native';
+import { IThemeColors } from '../interfaces/colors';
 
-export interface AppColors {
-	primary: string;
-	alternative: string;
-	primaryDarker: string;
-	background: string;
-}
+const isDark = Appearance.getColorScheme() === 'dark';
 
-export const LightColors: AppColors = {
-	background: StandardPalette.white,
-	primaryDarker: StandardPalette.darkolivegreen,
-	primary: StandardPalette.olive,
-	alternative: StandardPalette.yellowgreen,
+const DefaultColors: IThemeColors = {
+	background: '',
+	button: '',
+	disabled: '',
+	error: '',
+	info: '',
+	primary: '',
+	secondary: '',
+	states: {
+		disabled: '',
+		hover: '',
+		normal: '',
+		pressed: '',
+	},
+	success: '',
+	tertiary: '',
+	text: '',
+	transparent: StandardPalette.transparent,
+	warning: '',
 };
 
-export const DarkColors: AppColors = {
-	background: StandardPalette.black,
-	primaryDarker: StandardPalette.violet,
-	primary: StandardPalette.darkviolet,
-	alternative: StandardPalette.blanchedalmond,
+const LightColors: IThemeColors = {
+	...DefaultColors,
+	primary: StandardPalette.blue,
+	secondary: StandardPalette.red,
+	tertiary: StandardPalette.green,
 };
 
-export const Colors = (isDark = false): AppColors => (isDark ? DarkColors : LightColors);
+const DarkColors: IThemeColors = {
+	...DefaultColors,
+	primary: StandardPalette.blue,
+	secondary: StandardPalette.red,
+	tertiary: StandardPalette.green,
+};
+
+export const Colors: IThemeColors = isDark ? DarkColors : LightColors;
