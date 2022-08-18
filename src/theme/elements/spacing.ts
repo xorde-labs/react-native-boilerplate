@@ -1,4 +1,6 @@
-export const spacing = {
+import { IThemeSpacing } from '../interfaces/spacing';
+
+export const Spacing: IThemeSpacing = {
 	none: 0,
 	tiny: 4,
 	smaller: 8,
