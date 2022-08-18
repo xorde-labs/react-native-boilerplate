@@ -1,40 +1,22 @@
 import React, { PropsWithChildren } from 'react';
-import { StyleSheet, Text, useColorScheme, View } from 'react-native';
-import { ThemeColors, Spacing } from '../../theme';
+import { StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native';
+import { Spacing, Theme } from '../../theme';
 
 export const Section: React.FC<
 	PropsWithChildren<{
 		title: string;
+		style?: ViewStyle | TextStyle;
 	}>
 > = ({ children, title }) => {
-	const isDarkMode = useColorScheme() === 'dark';
 	return (
-		<View style={styles.sectionContainer}>
-			<Text
-				style={[
-					styles.sectionTitle,
-					{
-						color: ThemeColors(isDarkMode).primary,
-					},
-				]}
-			>
-				{title}
-			</Text>
-			<Text
-				style={[
-					styles.sectionDescription,
-					{
-						color: ThemeColors(isDarkMode).primary,
-					},
-				]}
-			>
-				{children}
-			</Text>
+		<View style={S.sectionContainer}>
+			<Text style={S.sectionTitle}>{title}</Text>
+			<Text style={S.sectionDescription}>{children}</Text>
 		</View>
 	);
 };
 
-const styles = StyleSheet.create({
+const S = StyleSheet.create({
 	sectionContainer: {
 		marginTop: Spacing.large,
 		paddingHorizontal: Spacing.mediumPlus,
@@ -42,11 +24,13 @@ const styles = StyleSheet.create({
 	sectionTitle: {
 		fontSize: 24,
 		fontWeight: '600',
+		color: Theme.Colors.text,
 	},
 	sectionDescription: {
 		marginTop: Spacing.smaller,
 		fontSize: 18,
 		fontWeight: '400',
+		color: Theme.Colors.text,
 	},
 	highlight: {
 		fontWeight: '700',

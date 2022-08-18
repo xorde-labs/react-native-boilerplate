@@ -1,18 +1,18 @@
 import { StatusBarTheme } from './elements/statusbar';
 import { ThemeColors } from './elements/colors';
 import { IThemeStyles } from './interfaces/styles';
-import { ScreenStyle } from './styles/screen';
 import { ITheme } from './interfaces/theme';
-import { StyleSheet } from 'react-native';
-import { ColorStyles } from './styles/colors';
+import { StyleSafeAreaView, StyleScrollView, StyleSection, StyleView } from './styles/views';
 
 export * from './elements/colors';
 export * from './elements/spacing';
 export * from './elements/typography';
 
 const ThemeStyles: IThemeStyles = {
-	screen: StyleSheet.create(ScreenStyle),
-	colors: ColorStyles,
+	SafeAreaView: StyleSafeAreaView,
+	ScrollView: StyleScrollView,
+	View: StyleView,
+	Section: StyleSection,
 };
 
 export const Theme: ITheme = {

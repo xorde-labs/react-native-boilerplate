@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { SafeAreaView, ScrollView, StatusBar, Text, View } from 'react-native';
+import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
 
 import { DebugInstructions, Header, LearnMoreLinks, ReloadInstructions } from 'react-native/Libraries/NewAppScreen';
 import { Theme } from '../theme';
@@ -11,17 +11,13 @@ import { Section } from '../components/views/section';
 
 const Main = () => {
 	return (
-		<SafeAreaView style={Theme.Styles.screen.container}>
+		<SafeAreaView style={Theme.Styles.SafeAreaView}>
 			<StatusBar barStyle={Theme.StatusBar} />
-			<ScrollView contentInsetAdjustmentBehavior="automatic" style={Theme.Styles.colors.default}>
+			<ScrollView contentInsetAdjustmentBehavior="automatic" style={Theme.Styles.ScrollView}>
 				<Header />
-				<View
-					style={{
-						backgroundColor: Theme.Styles.screen.container.backgroundColor,
-					}}
-				>
-					<Section title="Step One">
-						Edit <Text style={{ color: 'red' }}>App.tsx</Text> to change this screen and then come back to see your
+				<View style={Theme.Styles.View}>
+					<Section title="Step One" style={Theme.Styles.Section}>
+						Edit <Text style={S.highlightedText}>App.tsx</Text> to change this screen and then come back to see your
 						edits.
 					</Section>
 					<Section title="See Your Changes">
@@ -37,5 +33,11 @@ const Main = () => {
 		</SafeAreaView>
 	);
 };
+
+const S = StyleSheet.create({
+	highlightedText: {
+		color: 'red',
+	},
+});
 
 export default Main;

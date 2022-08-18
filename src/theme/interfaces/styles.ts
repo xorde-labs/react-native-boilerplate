@@ -1,13 +1,12 @@
 import { TextStyle, ViewStyle } from 'react-native';
-import { IColorStyle } from '../styles/colors';
-
-export interface IScreenStyle {
-	container: ViewStyle | TextStyle;
-	header: ViewStyle | TextStyle;
-	footer: ViewStyle | TextStyle;
-}
 
 export interface IThemeStyles {
-	screen: IScreenStyle;
-	colors: IColorStyle;
+	View: ViewStyle | TextStyle;
+	SafeAreaView: ViewStyle | TextStyle;
+	ScrollView: ViewStyle | TextStyle;
+	Section: ViewStyle | TextStyle;
+}
+
+export interface IColorStyles {
+	Default: ViewStyle | TextStyle;
 }
