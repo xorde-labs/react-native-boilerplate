@@ -4,7 +4,6 @@
 
 import React from 'react';
 import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
-
 import { DebugInstructions, Header, LearnMoreLinks, ReloadInstructions } from 'react-native/Libraries/NewAppScreen';
 import { Theme } from '../theme';
 import { Section } from '../components/views/section';
@@ -17,8 +16,7 @@ const Main = () => {
 				<Header />
 				<View style={Theme.Styles.View}>
 					<Section title="Step One" style={Theme.Styles.Section}>
-						Edit <Text style={S.highlightedText}>App.tsx</Text> to change this screen and then come back to see your
-						edits.
+						Edit <Text style={S.highlight}>App.tsx</Text> to change this screen and then come back to see your edits.
 					</Section>
 					<Section title="See Your Changes">
 						<ReloadInstructions />
@@ -35,7 +33,7 @@ const Main = () => {
 };
 
 const S = StyleSheet.create({
-	highlightedText: {
+	highlight: {
 		color: 'red',
 	},
 });
